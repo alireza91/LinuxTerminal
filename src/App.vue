@@ -83,7 +83,9 @@ export default {
       maximized: false,
       terminalWidth: "80%",
       terminalHeight: "500px",
-      minimized: false
+      minimized: false,
+      terminal: null,
+      dimension: { initialXPosition: 0, initialYPosition: 0 }
     };
   },
   created() {},
@@ -157,27 +159,15 @@ export default {
     },
     drag() {
       this.headerTerminal = document.getElementById("draggable");
-      let terminal = document.getElementById("holder");
+      this.terminal = document.getElementById("holder");
       this.headerTerminal.addEventListener("mousedown", event => {
-        let initialXPosition =
-          event.clientX - terminal.getBoundingClientRect().left;
-        let initialYPosition =
-          event.clientY - terminal.getBoundingClientRect().top;
-
-        // moveAt(event.pageX, event.pageY);
-
-        function moveAt(pageX, pageY) {
-          terminal.style.left = pageX - initialXPosition + "px";
-          terminal.style.top = pageY - initialYPosition + "px";
-        }
-        function onMouseMove(event) {
-          moveAt(event.pageX, event.pageY);
-        }
-
-        // move the ball on mousemove
-        document.addEventListener("mousemove", onMouseMove);
+        this.dimension.initialXPosition =
+          event.clientX - this.terminal.getBoundingClientRect().left;
+        this.dimension.initialYPosition =
+          event.clientY - this.terminal.getBoundingClientRect().top;
+        document.addEventListener("mousemove", this.onMouseMove);
         document.body.onmouseup = () => {
-          document.removeEventListener("mousemove", onMouseMove);
+          document.removeEventListener("mousemove", this.onMouseMove);
           this.headerTerminal.onmouseup = null;
         };
       });
@@ -188,7 +178,19 @@ export default {
       this.history = "";
       this.minimized = false;
       this.maximized = false;
-      //      document.removeEventListener("mousemove", )
+      document.body.onmouseup = () => {
+        document.removeEventListener("mousemove", this.onMouseMove);
+      };
+    },
+    moveAt(pageX, pageY) {
+      if (this.maximized) {
+        this.maximizeHandler();
+      }
+      this.terminal.style.left = pageX - this.dimension.initialXPosition + "px";
+      this.terminal.style.top = pageY - this.dimension.initialYPosition + "px";
+    },
+    onMouseMove(event) {
+      this.moveAt(event.pageX, event.pageY);
     },
     stopBlinking() {
       clearInterval(this.cursorBlinking);
