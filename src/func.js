@@ -1,4 +1,3 @@
-import axios from "axios";
 const user = "guest@alirezaonline.xyz:~$ "
 export default {
     commandExecution(command) {
