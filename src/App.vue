@@ -3,7 +3,10 @@
     <div @click="selected = 0">
       <div class="trash" @click.stop="selected = 1">
         <div class="icon" v-bind:class="selected == 1 ? '' : ''"></div>
-        <div class="caption" v-bind:class="selected == 1 ? 'selected-caption' : ''">
+        <div
+          class="caption"
+          v-bind:class="selected == 1 ? 'selected-caption' : ''"
+        >
           <div>Trash</div>
         </div>
       </div>
@@ -15,7 +18,10 @@
       >
         <div class="icon" v-bind:class="selected == 2 ? '' : ''"></div>
         <span class="minimizeCircle" v-show="minimized"></span>
-        <div class="caption" v-bind:class="selected == 2 ? 'selected-caption' : ''">
+        <div
+          class="caption"
+          v-bind:class="selected == 2 ? 'selected-caption' : ''"
+        >
           <div>Terminal</div>
         </div>
       </div>
@@ -23,22 +29,36 @@
     <div
       class="holder"
       id="holder"
-      v-bind:style="{width: terminalWidth, height: terminalHeight}"
+      v-bind:style="{ width: terminalWidth, height: terminalHeight }"
       v-show="terminalShow"
       v-bind:class="minimized ? 'minimize-animation' : ''"
     >
       <div class="header" @dblclick="maximizeHandler" id="draggable">
         <div class="width: 100%">
-          <h4 onselectstart="return false" style="width: inherit">{{user}}</h4>
+          <h4 onselectstart="return false" style="width: inherit">
+            {{ user }}
+          </h4>
         </div>
         <div class="buttons">
-          <button class="exit" @click="closeTerminal" @dblclick.stop="maximized = maximized">
-            <div class="close-sign">x</div>
+          <button
+            class="exit"
+            @click="closeTerminal"
+            @dblclick.stop="maximized = maximized"
+          >
+            <div class="close-sign">&times;</div>
           </button>
-          <button class="minimize" @click="minimizeTerminal" @dblclick.stop="maximized = maximized">
+          <button
+            class="minimize"
+            @click="minimizeTerminal"
+            @dblclick.stop="maximized = maximized"
+          >
             <div class="line-min"></div>
           </button>
-          <button class="maximize" @click="maximizeHandler" @dblclick.stop="maximized = maximized">
+          <button
+            class="maximize"
+            @click="maximizeHandler"
+            @dblclick.stop="maximized = maximized"
+          >
             <div class="square-max"></div>
           </button>
         </div>
@@ -46,11 +66,17 @@
       <div class="container">
         <div class="row">
           <!-- <div class="back"></div> -->
-          <div onselectstart="return false" class="wrapper" id="history" v-html="history + cursor"></div>
+          <div
+            onselectstart="return false"
+            class="wrapper"
+            id="history"
+            v-html="history + cursor"
+          ></div>
         </div>
-        <div
-          class="copyright"
-        >Copyright &copy; 2020 Tehran, Iran. All rights reserved for alirezaonline.xyz</div>
+        <div class="copyright">
+          Copyright &copy; 2020 Tehran, Iran. All rights reserved for
+          alirezaonline.xyz
+        </div>
       </div>
     </div>
   </div>
@@ -85,7 +111,7 @@ export default {
       terminalHeight: "500px",
       minimized: false,
       terminal: null,
-      dimension: { initialXPosition: 0, initialYPosition: 0 }
+      dimension: { initialXPosition: 0, initialYPosition: 0 },
     };
   },
   created() {},
@@ -160,7 +186,7 @@ export default {
     drag() {
       this.headerTerminal = document.getElementById("draggable");
       this.terminal = document.getElementById("holder");
-      this.headerTerminal.addEventListener("mousedown", event => {
+      this.headerTerminal.addEventListener("mousedown", (event) => {
         this.dimension.initialXPosition =
           event.clientX - this.terminal.getBoundingClientRect().left;
         this.dimension.initialYPosition =
@@ -245,18 +271,18 @@ export default {
         this.command = this.command.substring(0, this.command.length - 1);
         this.history = this.history.substring(0, this.history.length - 1);
       }
-    }
+    },
   },
   destroyed() {
     this.stopBlinking();
     clearInterval(this.typingInterval);
-  }
+  },
 };
 </script>
 
 <style>
 body {
-  background: url("./assets/back.jpg") center center fixed no-repeat;
+  background: url("./assets/1.png") center center fixed no-repeat;
   object-fit: fill;
   position: fixed;
   top: 0;
@@ -339,14 +365,14 @@ h4 {
 .table {
   /* border-color: rgb(21, 204, 21); */
   border-color: #8adf32;
-  border-style: dashed;
+  /* border-style: dashed; */
 }
 
 td {
   font-weight: 400;
   padding: 20px;
   text-align: left;
-  border-style: dashed;
+  /* border-style: dashed; */
 }
 
 a {
@@ -404,8 +430,9 @@ a:hover {
 
 .buttons > button {
   border-radius: 50%;
-  width: 17px;
-  height: 17px;
+  /* width: 17px; */
+  /* height: 17px; */
+  padding: 8px;
   display: inline-block;
   text-align: center;
   margin-left: 3px;
@@ -421,8 +448,9 @@ a:hover {
 
 .close-sign {
   position: absolute;
-  margin-left: -4px;
+  margin-left: -7px;
   margin-top: -9px;
+  font-size: 22px;
 }
 
 .exit:hover {
@@ -441,19 +469,19 @@ a:hover {
 
 .square-max {
   position: absolute;
-  width: 8px;
-  height: 6px;
-  border: 1.5px solid #3d3c37;
+  width: 7px;
+  height: 5px;
+  border: 2px solid #3d3c37;
   margin-left: -5px;
-  margin-top: -3px;
+  margin-top: -4px;
 }
 
 .line-min {
   position: absolute;
   width: 10px;
-  height: 1px;
+  height: 2px;
   margin-left: -5px;
-  margin-top: 1px;
+  margin-top: 0px;
   background-color: #3d3c37;
 }
 
