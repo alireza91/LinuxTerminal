@@ -3,10 +3,7 @@
     <div @click="selected = 0">
       <div class="trash" @click.stop="selected = 1">
         <div class="icon" v-bind:class="selected == 1 ? '' : ''"></div>
-        <div
-          class="caption"
-          v-bind:class="selected == 1 ? 'selected-caption' : ''"
-        >
+        <div class="caption" v-bind:class="selected == 1 ? 'selected-caption' : ''">
           <div>Trash</div>
         </div>
       </div>
@@ -18,10 +15,7 @@
       >
         <div class="icon" v-bind:class="selected == 2 ? '' : ''"></div>
         <span class="minimizeCircle" v-show="minimized"></span>
-        <div
-          class="caption"
-          v-bind:class="selected == 2 ? 'selected-caption' : ''"
-        >
+        <div class="caption" v-bind:class="selected == 2 ? 'selected-caption' : ''">
           <div>Terminal</div>
         </div>
       </div>
@@ -74,8 +68,7 @@
           ></div>
         </div>
         <div class="copyright">
-          Copyright &copy; 2020 Tehran, Iran. All rights reserved for
-          alirezaonline.xyz
+          Copyright &copy; 2020 Tehran, Iran. All rights reserved for github.com/alireza91
         </div>
       </div>
     </div>
@@ -90,7 +83,7 @@ export default {
   data() {
     return {
       blink: false,
-      user: "guest@alirezaonline.xyz:~$ ",
+      user: "guest@github.com/alireza91:~$ ",
       cursor: "_",
       hint:
         '<div style="font-size: 14px; font-weight: 500;">(to see help, please use "-help" command)</div>',
@@ -114,7 +107,6 @@ export default {
       dimension: { initialXPosition: 0, initialYPosition: 0 },
     };
   },
-  created() {},
   mounted() {},
   methods: {
     typing(str) {

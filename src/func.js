@@ -1,4 +1,4 @@
-const user = "guest@alirezaonline.xyz:~$ "
+const user = "guest@github.com/alireza91:~$ "
 export default {
     commandExecution(command) {
         let result = '<br/>';
@@ -10,10 +10,10 @@ export default {
                 result += "<br/>E-mail: <a href='mailto:alireza_mortezaei@hotmail.com'>alireza_mortezaei@hotmail.com</a><br/>Phone number: +989360019915<br/>Instagram: <a href='https://instagram.com/alimtz91'>@alimtz91</a><br/>Linkedin profile: <a href='https://www.linkedin.com/in/alireza-mortezaei-55280a143/'>https://www.linkedin.com/in/alireza-mortezaei-55280a143/</a><br/>"
                 break;
             case "about":
-                result += "<br/>I graduated from Azad University of Karaj with bachelor degree in Software Engineering. Skilled in php, SQL, HTML, css and javascript and have 4 years of experience in Vue.js and Laravel frameworks. My hobby is art and I'm enthusiast for Technology. I'm also a Linux lover.<br/>"
+                result += "<br/>I graduated from Azad University of Karaj with bachelor degree in Software Engineering. Skilled in C#, SQL, HTML, css and javascript and have 4 years of experience in Vue.js and .Net frameworks. My hobby is art and I'm enthusiast for Technology. I'm also a Linux lover.<br/>"
                 break;
             case "skills":
-                result += "<ul><li>Object-oriented programming</li><li>MVC</li><li>php</li><li>nodejs</li><li>express.js</li><li>Javascript</li><li>css</li><li>HTML5</li><li>Laravel</li><li>vue.js</li><li>Agile development</li><li>behavioural pattern</li><li>repository and unit of work pattern</li></ul>"
+                result += "<ul><li>Object-oriented programming</li><li>C#</li><li>.Net core and EF core</li><li>SQL (SQL server, mySQL, PostgreSQL)</li><li>noSQL (MongoDB, ArangoDB, Redis and...)</li><li>MVC</li><li>nodejs</li><li>Javascript</li><li>css</li><li>HTML5</li><li>vue.js</li><li>Agile development</li><li>Design patterns</li></ul>"
                 break;
             case "resume":
                 result += "<div style='padding-left: 20px;'>You can see my resume through <a href='https://alirezaonline.xyz/Resume.pdf'>this link</a>";
