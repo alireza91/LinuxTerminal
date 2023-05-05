@@ -13,7 +13,7 @@ export default {
                 result += "<br/>I graduated from Azad University of Karaj with bachelor degree in Software Engineering. Skilled in C#, SQL, HTML, css and javascript and have 4 years of experience in Vue.js and .Net frameworks. My hobby is art and I'm enthusiast for Technology. I'm also a Linux lover.<br/>"
                 break;
             case "skills":
-                result += "<ul><li>Object-oriented programming</li><li>C#</li><li>.Net core and EF core</li><li>SQL (SQL server, mySQL, PostgreSQL)</li><li>noSQL (MongoDB, ArangoDB, Redis and...)</li><li>MVC</li><li>nodejs</li><li>Javascript</li><li>css</li><li>HTML5</li><li>vue.js</li><li>Agile development</li><li>Design patterns</li></ul>"
+                result += "<ul><li>Object-oriented programming</li><li>C#</li><li>.Net core and EF core</li><li>SQL (SQL server, mySQL, PostgreSQL)</li><li>noSQL (MongoDB, ArangoDB, Redis and...)</li><li>MVC</li><li>nodejs</li><li>Javascript</li><li>css</li><li>HTML5</li><li>vue.js</li><li>Git</li><li>Agile development</li><li>Design patterns</li></ul>"
                 break;
             case "resume":
                 result += "<div style='padding-left: 20px;'>You can see my resume through <a href='https://alirezaonline.xyz/Resume.pdf'>this link</a>";
